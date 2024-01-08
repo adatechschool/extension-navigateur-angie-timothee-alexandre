@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Extension de navigateur pour trigger des mots clés",
   "icons": {
-    "128": "images/clipart-attention.png"
+    "128": "images/icon128.png"
   },
   "permissions": [
     "activeTab"

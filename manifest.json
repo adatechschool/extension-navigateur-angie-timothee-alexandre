@@ -6,13 +6,16 @@
   "icons": {
     "128": "images/clipart-attention.png"
   },
+  "permissions": [
+    "activeTab"
+  ],
   "content_scripts": [
     {
-      "js": [
-        "content.js"
-      ],
       "matches": [
         "<all_urls>"
+      ],
+      "js": [
+        "content.js"
       ]
     }
   ]

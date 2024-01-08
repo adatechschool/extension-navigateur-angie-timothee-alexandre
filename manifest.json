@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Trigger Extension",
+  "version": "1.0.0",
+  "description": "Extension de navigateur pour trigger des mots clés",
+  "icons": {
+    "128": "images/JavaScript.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

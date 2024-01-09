@@ -3,6 +3,9 @@
   "name": "Trigger Extension",
   "version": "1.0.0",
   "description": "Extension de navigateur pour trigger des mots clés",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
   "icons": {
     "128": "images/icon128.png"
   },

@@ -1,15 +1,23 @@
 <html lang="fr">
-
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
 <body>
 
   <h1>S&eacutelectionne les th&egravemes sensibles</h1>
   <div class="theme-container">
-    <input type="checkbox" id="sex"> <label for="sex">Violence sexuelle</label>
-    <input type="checkbox" id="guerre"><label for="guerre">Guerre</label>
-    <input type="checkbox" id="blessure"><label for="blessure">Blessure physique</label>
+    <div class="category">
+      <input type="checkbox" id="sex"> <label for="sex">Violence sexuelle</label>
+    </div>
+    <div class="category">
+      <input type="checkbox" id="guerre"> <label for="guerre">Guerre</label>
+    </div>
+    <div class="category">
+      <input type="checkbox" id="blessure"> <label for="blessure">Blessure physique</label>
+    </div>
   </div>
 
-  <script src="content.js"></script>
+  <script src="../content.js"></script>
 
 </body>
 

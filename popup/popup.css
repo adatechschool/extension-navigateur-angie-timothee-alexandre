@@ -7,8 +7,8 @@
 }
 
 h1 {
-    color: red;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 115, 0);
     width: 320px;
     font-size: 24px;
     padding: 15px;
@@ -24,7 +24,46 @@ h1 {
 .theme-container .category {
     display: block;
     font-size: 16px;
-    color: black;
+    color: rgb(255, 115, 0);
     margin-bottom: 20px;
     padding-left: 50px;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+input[type="checkbox"] + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: '\2714';
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    color: rgb(255, 115, 0);
+    text-align: center;
+    line-height: 20px;
+}
+
+input[type="checkbox"]:focus + label:before {
+    border: 1px dashed #777;
 }

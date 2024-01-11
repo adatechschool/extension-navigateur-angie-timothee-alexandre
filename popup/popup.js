@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    const toggleSwitch = document.querySelector('#sex');
+    const toggleSwitch = document.querySelector('#triggeredWords');
 
     chrome.storage.sync.get('isEnabled', (data)=>{
         toggleSwitch.checked = data.isEnabled || false;

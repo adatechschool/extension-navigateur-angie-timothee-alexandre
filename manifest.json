@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Trigger Extension",
+  "name": "Trigger Alcool",
   "version": "1.0.0",
-  "description": "Extension de navigateur pour trigger des mots clés selon des thèmes précis",
+  "description": "Extension to trigger alcohol-related content",
   "action": { "default_popup": "popup/popup.html" },
-  "icons": { "128": "images/icon128.png" },
+  "icons": { "128": "images/logoAlcool.png" },
   "permissions": [
     "activeTab",
     "storage"

@@ -4,13 +4,18 @@ const keywords = {
   "blessurePhysique": "amput, éventr, assassin, égorg, décapit, démembr, mutil, écorch, écartel, brûl, noy, pend, étrangl, poignard, empoison, écras, ébouill"
 }
 const wordsList = keywords.violenceSexuelle.split(",").map(word => word.trim())
-let regex = new RegExp(wordsList.join('|'), 'gi');
 
+// let regex = new RegExp(wordsList.join('|'), 'gi');
+let regex = new RegExp(`(?:<[^>]*>)|(?:${wordsList.join('|')})`, 'gi');
 
 const applyContentScript = () => {
   chrome.storage.sync.get('isEnabled', (data) => {
     if (data.isEnabled) {
-      document.body.innerHTML = document.body.innerHTML.replace(regex, 'Flash info: Darmanin enfin en prison');
+      // document.body.innerHTML = document.body.innerHTML.replace(regex, 'Flash info: Darmanin enfin en prison');
+      document.body.innerHTML = document.body.innerHTML.replace(regex, (match) => {
+        // Replace only if it's not inside an HTML tag
+        return match.startsWith('<') ? match : 'Flash info: Darmanin enfin en prison';
+      });
     } else {
       console.log('Encore raté');
     }

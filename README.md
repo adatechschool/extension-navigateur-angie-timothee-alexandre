@@ -8,4 +8,5 @@
 
 
 Problèmes:
-- exclusion des termes intégrant un mot trigger (cul vs minuscule)
+- faire en sorte que l'extension ne casse pas tout quand elle est activée
+- flouter les images d'alcools

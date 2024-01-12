@@ -12,7 +12,7 @@ const alcools = `
   bière, bières, biere, bieres,
   vin, vins,
   champagne, champagnes,
-  whisky, whiskies,
+  whisky, whiskies, whiskey, whiskeys,
   vodka, vodkas,
   rhum, rhums,
   gin, gins,
@@ -191,6 +191,7 @@ const alcools = `
 const wordsList = alcools.split(",").map(word => word.trim());
 
 let regex = new RegExp(`(?:<[^>]*>)|(?:\\b${wordsList.join('\\b|\\b')}\\b)`, 'gi');
+// let imgRegex = new RegExp(`<img[^>]*src="[^"]*(${wordsList.join('|')})[^"]*"[^>]*>`, 'gi');
 
 const applyContentScript = () => {
   chrome.storage.sync.get('isEnabled', (data) => {
@@ -199,6 +200,11 @@ const applyContentScript = () => {
         // Replace only if it's not inside an HTML tag
         return match.startsWith('<') ? match : "<a href='https://www.alcool-info-service.fr'><UNE PAUSE DANS VOTRE CONSOMMATION></a>";
       });
+
+      // // Replace img src if it contains a word from wordsList
+      // document.body.innerHTML = document.body.innerHTML.replace(imgRegex, (match) => {
+      //   return match.replace(/src="[^"]*"/, 'src="https://img.freepik.com/vecteurs-premium/aucune-icone-alcool-signe-interdiction-boisson-alcoolisee-verre-biere-dessin-anime-bouteille-vin-whisky-rouge-symbole-vecteur-boisson-interdiction-illustration-pas-boisson-alcoolisee-boisson-interdite-interdite_102902-4096.jpg?w=2000"');
+      // });
     } else {
       console.log('Encore raté');
     }

@@ -1,3 +1,12 @@
+.motivations {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite;
+    background: linear-gradient(to bottom, rgba(255, 204, 153, 0.3) 0%, rgba(255, 255, 204, 0.3) 100%);
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
 *::before,
 ::after {
     box-sizing: border-box;

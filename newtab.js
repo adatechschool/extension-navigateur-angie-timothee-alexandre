@@ -40,6 +40,7 @@
 // }
 
 document.addEventListener("DOMContentLoaded", function () {
+    randomQuote();
     const startButton = document.getElementById("startButton");
     const counterDisplay = document.getElementById("counter");
 
@@ -84,3 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+let motivations = document.getElementById("motivations");
+
+async function randomQuote() {
+    const response = await fetch('https://api.quotable.io/random')
+    const quote = await response.json()
+    
+    // Output the quote and author name
+    console.log(quote.content)
+    console.log(`- ${quote.author}`)
+
+    motivations.innerHTML = "<h1> "+ quote.content + "</h1><br><h3>- " + quote.author + "</h3>";
+}

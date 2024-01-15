@@ -4,25 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newtab.css">
     <title>Sober'up</title>
 </head>
 
 <body>
-    <div>
-        <h1>Sober'up</h1>
-        <h2>Deviens sobre facilement grâce à notre extension</h2>
+    <div class="container">
+        <script>document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?landscape`)"</script>
+        <h1> Get sober !</h1>
+        <p>A l'occasion du dry january, prends le temps de te poser les bonnes questions sur ta consommation d'alcool
+        </p>
+
+        <button id="startButton">Commencer le Challenge</button>
+        <div id="counter"></div>
+
+        <div class="time-content">
+            <div class="time jours">
+                <div class="number">00</div>
+                <div class="text">Jours</div>
+            </div>
+            <div class="time heures">
+                <div class="number">00</div>
+                <div class="text">Heures</div>
+            </div>
+            <div class="time minutes">
+                <div class="number">00</div>
+                <div class="text">Minutes</div>
+            </div>
+            <div class="time secondes">
+                <div class="number">00</div>
+                <div class="text">Secondes</div>
+            </div>
+        </div>
     </div>
-    <div>
-        <p>Masque tout le contenu qui peut te donner envie de boire</p>
-        <p>Compte les jours sans alcool, et observe les changements !</p>
-    </div>
-    <div class="compteur"></div>
     <div class="motivations"></div>
     <div class="searchbox"></div>
 
 
 </body>
 <script src="newtab.js"></script>
-<link rel="stylesheet" href="newtab.css">
+
 
 </html>

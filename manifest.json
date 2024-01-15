@@ -3,16 +3,27 @@
   "name": "Alcoo'words Trigger",
   "version": "1.0.0",
   "description": "Extension pour trigger des mots clés sur l'alcool",
-  "action": { "default_popup": "popup/popup.html" },
-  "icons": { "128": "images/logoAlcool.png" },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "128": "images/logoAlcool.png"
+  },
   "permissions": [
     "activeTab",
     "storage"
   ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
   "content_scripts": [
     {
-      "matches": [ "<all_urls>" ],
-      "js": [ "content.js" ]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ]
 }

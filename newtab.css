@@ -74,3 +74,14 @@
     text-transform: uppercase;
 
 }
+
+#searchInput {
+    padding: 8px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+#search {
+    padding: 8px;
+    border-radius: 10px;
+}

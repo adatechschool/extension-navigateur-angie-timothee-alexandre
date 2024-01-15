@@ -97,3 +97,16 @@ async function randomQuote() {
 
     motivations.innerHTML = "<h1> "+ quote.content + "</h1><br><h3>- " + quote.author + "</h3>";
 }
+
+const performGoogleSearch = () => {
+    const searchTerm = document.getElementById('searchInput').value;
+    const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
+    window.location.href = searchUrl;
+}
+
+const checkEnter = (event) => {
+    if (event.key === "Enter") {
+        performGoogleSearch(); 
+        console.log('recherche')
+    }
+}

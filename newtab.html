@@ -37,7 +37,12 @@
         </div>
     </div>
     <div class="motivations" id="motivations"></div>
-    <div class="searchbox"></div>
+    <div class="searchbox">
+        <input type="text" id="searchInput" placeholder="Search on Google..." onkeydown="checkEnter(event)"
+            autocomplete="off">
+
+        <button id="search" onclick="performGoogleSearch()">Search</button>
+    </div>
     <script src="newtab.js"></script>
 </body>
 </html>

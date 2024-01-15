@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Trigger Alcool",
+  "name": "Alcoo'words Trigger",
   "version": "1.0.0",
-  "description": "Extension to trigger alcohol-related content",
+  "description": "Extension pour trigger des mots clés sur l'alcool",
   "action": { "default_popup": "popup/popup.html" },
   "icons": { "128": "images/logoAlcool.png" },
   "permissions": [

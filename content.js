@@ -1,4 +1,4 @@
-// VERSION DE BASE
+//* VERSION DE BASE
 const keywords = `
   violer, inceste, pénétr, sex, atouch, porn, pédoph, abus, harc, dominat, agression, guerre,
   mort, assassinat, violence, meurtre, bombe, attentat, arme, AK47, mitraill, flingue, pistolet,
@@ -7,7 +7,7 @@ const keywords = `
   brûl, noy, pend, étrangl, poignard, empoison, écras, ébouill
 `
 
-// VERSION AVEC ALCOOL
+//* VERSION AVEC ALCOOL
 const alcools = `
   bière, bières, biere, bieres,
   vin, vins,
@@ -188,23 +188,27 @@ const alcools = `
   eau de vie
 `
 
+// const wordsList = keywords.split(",").map(word => word.trim());
 const wordsList = alcools.split(",").map(word => word.trim());
 
 let regex = new RegExp(`(?:<[^>]*>)|(?:\\b${wordsList.join('\\b|\\b')}\\b)`, 'gi');
-// let imgRegex = new RegExp(`<img[^>]*src="[^"]*(${wordsList.join('|')})[^"]*"[^>]*>`, 'gi');
+let imgRegex = new RegExp(`<img[^>]*alt="[^"]*(${wordsList.join('|')})[^"]*"[^>]*>`, 'gi');
 
 const applyContentScript = () => {
   chrome.storage.sync.get('isEnabled', (data) => {
     if (data.isEnabled) {
       document.body.innerHTML = document.body.innerHTML.replace(regex, (match) => {
-        // Replace only if it's not inside an HTML tag
-        return match.startsWith('<') ? match : "<a href='https://www.alcool-info-service.fr'><UNE PAUSE DANS VOTRE CONSOMMATION></a>";
+        //? Replace only if it's not inside an HTML tag
+        return match.startsWith('<') ? match : "UNE PAUSE DANS VOTRE CONSOMMATION";
       });
 
-      // // Replace img src if it contains a word from wordsList
-      // document.body.innerHTML = document.body.innerHTML.replace(imgRegex, (match) => {
-      //   return match.replace(/src="[^"]*"/, 'src="https://img.freepik.com/vecteurs-premium/aucune-icone-alcool-signe-interdiction-boisson-alcoolisee-verre-biere-dessin-anime-bouteille-vin-whisky-rouge-symbole-vecteur-boisson-interdiction-illustration-pas-boisson-alcoolisee-boisson-interdite-interdite_102902-4096.jpg?w=2000"');
-      // });
+      //? Replace img src (or blur images) if it contains a word from wordsList
+      document.body.innerHTML = document.body.innerHTML.replace(imgRegex, (match) => {
+          // return match.replace(/src="[^"]*"/, 'src="https://img.freepik.com/vecteurs-premium/aucune-icone-alcool-signe-interdiction-boisson-alcoolisee-verre-biere-dessin-anime-bouteille-vin-whisky-rouge-symbole-vecteur-boisson-interdiction-illustration-pas-boisson-alcoolisee-boisson-interdite-interdite_102902-4096.jpg?w=2000"');
+        //! Fonctionne à moitié, seul quelques images sont remplacées
+        return match.replace(/alt="[^"]*"/, "style='filter: blur(1rem);'");
+        //! Fonctionne, toutes les images sont floutées (data:image)
+      });
     } else {
       console.log('Encore raté');
     }

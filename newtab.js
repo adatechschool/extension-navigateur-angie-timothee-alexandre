@@ -78,5 +78,45 @@ document.getElementById('searchInput').addEventListener('keypress', function(eve
     }
 });
 
+function randomNb(nb) {
+    return Math.floor(Math.random() * nb) + 1;
+}
+
 let audio = new Audio("https://www.soundjay.com/nature/sounds/stream-2.mp3");
-audio.play();
+let audio2 = new Audio(`https://www.soundjay.com/nature/sounds/river-${randomNb(6)}.mp3`);
+audio2.play();
+
+
+//? TRADUCTION
+
+// Define a dictionary of translations for each language
+const translations = {
+    'en-gb': {
+        "TITLE": "Get Sober !",
+        "DESCRIPTION": "Starting the New Year with new goals, it's the occasion to ask yourself about your drinking habits. Did you ever get black out ? Do you drink on your own ? Do you need to drink to go out ?",
+        "START": "START THE CHALLENGE",
+    },
+    'fr-fr': {
+        "TITLE": "Soyez Sobre !",
+        "DESCRIPTION": "A l'occasion du dry january, prends le temps de te poser les bonnes questions sur ta consommation d'alcool",
+        "START": "COMMENCER LE CHALLENGE",
+    }
+};
+
+  // Get the language buttons and the elements with the lang class
+const langButtons = document.querySelectorAll('.translate');
+const langElements = document.querySelectorAll('.lang');
+
+  // Add click event listeners to the language buttons
+langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Get the selected language from the button id
+        const lang = button.id;
+
+      // Update the text content of the elements with the lang class
+        langElements.forEach(element => {
+        const key = element.getAttribute('key');
+        element.textContent = translations[lang][key];
+        });
+    });
+});

@@ -119,3 +119,43 @@ html {
     background-color: black;
     transition: all 0.5s ease;
 }
+
+/* TRADUCTION */
+
+.enTranslate {
+    display: flex;
+    position: fixed;
+    background-color: #fff;
+    color: #313131;
+    padding: 0.8rem 2rem;
+    border-radius: 0 2rem 2rem 0;
+    transition: background-color 0.25s;
+    border-color: transparent;
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: bold;
+    right: 0;
+}
+
+.frTranslate {
+    display: flex;
+    position: fixed;
+    background-color: #fff;
+    color: #313131;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem 0 0 2rem;
+    transition: background-color 0.25s;
+    border-color: transparent;
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: bold;
+    right: 125px;
+}
+
+.translate:hover {
+    background-color: #313131;
+    color: #fff;
+    transition: background-color 0.25s;
+}

@@ -1,48 +1,11 @@
-// const secondes = document.querySelector('.secondes .number')
-// const minutes = document.querySelector('.minutes .number')
-// const heures = document.querySelector('.heures .number')
-// const jours = document.querySelector('.jours .number')
-
-
-// console.log(secondes.value, minutes, heures, jours)
-
-
-// let secValue = 0
-// let minValue = 0
-// let hourValue = 0
-// let dayValue = 0
-
-// const startTimer = () => {
-
-//     const timeFunction = setInterval(() => {
-
-//         secValue++;
-
-//         if (secValue === 60) {
-//             minValue++;
-//             secValue = 0;
-//         }
-//         if (minValue === 60) {
-//             hourValue++;
-//             minValue = 0;
-//         }
-//         if (hourValue === 24) {
-//             dayValue++;
-//             hourValue = 0;
-//         }
-
-//         secondes.innerHTML = secValue < 10 ? `0${secValue}` : secValue
-//         minutes.innerHTML = minValue < 10 ? `0${minValue}` : minValue
-//         heures.innerHTML = hourValue < 10 ? `0${hourValue}` : hourValue
-//         jours.innerHTML = dayValue < 10 ? `0${dayValue}` : dayValue
-
-//     }, 1000);
-// }
+const secondes = document.querySelector('.secondes .number')
+const minutes = document.querySelector('.minutes .number')
+const heures = document.querySelector('.heures .number')
+const jours = document.querySelector('.jours .number')
 
 document.addEventListener("DOMContentLoaded", function () {
     randomQuote();
     const startButton = document.getElementById("startButton");
-    const counterDisplay = document.getElementById("counter");
 
     startButton.addEventListener("click", function () {
         // Récupérer la date actuelle
@@ -65,13 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 const currentDate = new Date();
                 const elapsedMilliseconds = currentDate - startDate;
 
-                const seconds = Math.floor((elapsedMilliseconds / 1000) % 60);
-                const minutes = Math.floor((elapsedMilliseconds / 1000 / 60) % 60);
-                const hours = Math.floor((elapsedMilliseconds / 1000 / 60 / 60) % 24);
-                const days = Math.floor(elapsedMilliseconds / 1000 / 60 / 60 / 24);
+                const secondsNow = Math.floor((elapsedMilliseconds / 1000) % 60);
+                const minutesNow = Math.floor((elapsedMilliseconds / 1000 / 60) % 60);
+                const hoursNow = Math.floor((elapsedMilliseconds / 1000 / 60 / 60) % 24);
+                const daysNow = Math.floor(elapsedMilliseconds / 1000 / 60 / 60 / 24);
 
                 // Afficher le compteur
-                counterDisplay.textContent = `${days} jours, ${hours} heures, ${minutes} minutes, ${seconds} secondes`;
+                // counterDisplay.textContent = `${days} jours, ${hours} heures, ${minutes} minutes, ${seconds} secondes`;
+                secondes.innerHTML = secondsNow < 10 ? `0${secondsNow}` : secondsNow
+                minutes.innerHTML = minutesNow < 10 ? `0${minutesNow}` : minutesNow
+                heures.innerHTML = hoursNow < 10 ? `0${hoursNow}` : hoursNow
+                jours.innerHTML = daysNow < 10 ? `0${daysNow}` : daysNow
             }
         }, 1000);
     }
@@ -84,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 let motivations = document.getElementById("motivations");
 
 async function randomQuote() {
@@ -95,7 +61,7 @@ async function randomQuote() {
     console.log(quote.content)
     console.log(`- ${quote.author}`)
 
-    motivations.innerHTML = "<h1> "+ quote.content + "</h1><br><h3>- " + quote.author + "</h3>";
+    motivations.innerHTML = "<h2> "+ quote.content + "</h2><br><h3>- " + quote.author + "</h3>";
 }
 
 const performGoogleSearch = () => {
@@ -104,9 +70,13 @@ const performGoogleSearch = () => {
     window.location.href = searchUrl;
 }
 
-const checkEnter = (event) => {
+document.getElementById('searchBtn').addEventListener('click', performGoogleSearch);
+
+document.getElementById('searchInput').addEventListener('keypress', function(event) {
     if (event.key === "Enter") {
         performGoogleSearch(); 
-        console.log('recherche')
     }
-}
+});
+
+let audio = new Audio("https://www.soundjay.com/nature/sounds/stream-1.mp3");
+audio.play();

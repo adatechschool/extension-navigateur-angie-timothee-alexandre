@@ -8,9 +8,9 @@
 
 ## Titre du projet
 
-**Alco'words Trigger**
+**Sober'up**
 
-Problèmes:
+## Description du projet
 
-- faire en sorte que l'extension ne casse pas tout quand elle est activée
-- flouter les images d'alcools
+Sober'up est une extension de navigateur qui permet de flouter des images ainsi que de remplacer du texte sensible à partir d'une liste de mots `alcools`.
+Elle possède une page d'acceuil thématisée et motivante ainsi qu'un compteur de temps depuis le dernier verre d'alcool.

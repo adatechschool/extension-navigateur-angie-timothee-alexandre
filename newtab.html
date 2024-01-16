@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="newtab.css">
-    <title>Sober'up</title>
-</head>
-
-<body>
-    <div class="container">
-        <script>document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?landscape`)"</script>
-        <h1> Get sober !</h1>
-        <p>A l'occasion du dry january, prends le temps de te poser les bonnes questions sur ta consommation d'alcool
-        </p>
-
-        <button id="startButton">Commencer le Challenge</button>
-        <div id="counter"></div>
-
-        <div class="time-content">
-            <div class="time jours">
-                <div class="number">00</div>
-                <div class="text">Jours</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="newtab.css">
+        <title>Sober'up</title>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Get sober !</h1>
+            <p>Starting the New Year with new goals, it's the occasion to ask yourself about your drinking habits. Did you ever get black out ? Do you drink on your own ? Do you need to drink to go out ?</p>
+            <div class="searchbox">
+                <input type="text" id="searchInput" placeholder="Search on Google..." >
+            
+                <button id="searchBtn">Search</button>
             </div>
-            <div class="time heures">
-                <div class="number">00</div>
-                <div class="text">Heures</div>
+            
+            <button id="startButton">START THE CHALLENGE</button>
+        
+            <div class="time-content">
+                <div class="time jours">
+                    <div class="number">00</div>
+                    <div class="text">Days</div>
+                </div>
+                <div class="time heures">
+                    <div class="number">00</div>
+                    <div class="text">Hours</div>
+                </div>
+                <div class="time minutes">
+                    <div class="number">00</div>
+                    <div class="text">Minutes</div>
+                </div>
+                <div class="time secondes">
+                    <div class="number">00</div>
+                    <div class="text">Secondes</div>
+                </div>
             </div>
-            <div class="time minutes">
-                <div class="number">00</div>
-                <div class="text">Minutes</div>
-            </div>
-            <div class="time secondes">
-                <div class="number">00</div>
-                <div class="text">Secondes</div>
-            </div>
+            <div class="motivations" id="motivations"></div>
         </div>
-    </div>
-    <div class="motivations" id="motivations"></div>
-    <div class="searchbox">
-        <input type="text" id="searchInput" placeholder="Search on Google..." onkeydown="checkEnter(event)"
-            autocomplete="off">
-
-        <button id="search" onclick="performGoogleSearch()">Search</button>
-    </div>
     <script src="newtab.js"></script>
 </body>
 </html>

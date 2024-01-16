@@ -1,10 +1,23 @@
+:root {
+    --main-bg-color: rgba(80, 80, 80, 0.7);
+}
+
+html {
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+}
+
 .motivations {
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: antiquewhite;
-    background: linear-gradient(to bottom, rgba(255, 204, 153, 0.3) 0%, rgba(255, 255, 204, 0.3) 100%);
+    /* background-color: rgba(0, 0, 255, 0.4); */
+    background-color: var(--main-bg-color);
     border-radius: 10px;
-    padding: 10px 0;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 3px 3px 4px black;
 }
 
 *::before,
@@ -18,20 +31,10 @@
 .container {
     height: 100vh;
     width: 100%;
-    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 16px;
-}
-
-.container img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 .container h1 {
@@ -39,12 +42,18 @@
     font-size: 55px;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 8px 8px 50px rgb(0, 0, 0);
 }
 
 .container p {
     color: #fff;
     font-size: 16px;
     text-align: center;
+    width: 500px;
+    background-color: var(--main-bg-color);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .time-content {
@@ -72,16 +81,41 @@
     padding: 1rem;
     margin-top: 0.5em;
     text-transform: uppercase;
-
 }
 
 #searchInput {
     padding: 8px;
     width: 300px;
     border-radius: 20px;
+    border-color: var(--main-bg-color);
+    border-width: 5px;
 }
 
-#search {
+#searchBtn {
     padding: 8px;
     border-radius: 10px;
+    border-color: var(--main-bg-color);
+    transition: all 0.5s ease;
+}
+
+#searchBtn:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+#startButton {
+    padding: 8px;
+    border-radius: 10px;
+    border-color: var(--main-bg-color);
+    transition: all 0.5s ease;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: white;
+}
+
+#startButton:hover {
+    background-color: black;
+    transition: all 0.5s ease;
 }

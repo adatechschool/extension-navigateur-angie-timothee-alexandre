@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Alcoo'words Trigger",
-  "version": "1.0.0",
+  "name": "Sober'up",
+  "version": "2.0.0",
   "description": "Extension pour trigger des mots clés sur l'alcool",
   "action": {
     "default_popup": "popup/popup.html"

@@ -78,5 +78,5 @@ document.getElementById('searchInput').addEventListener('keypress', function(eve
     }
 });
 
-let audio = new Audio("https://www.soundjay.com/nature/sounds/stream-1.mp3");
+let audio = new Audio("https://www.soundjay.com/nature/sounds/stream-2.mp3");
 audio.play();

@@ -82,7 +82,6 @@ function randomNb(nb) {
     return Math.floor(Math.random() * nb) + 1;
 }
 
-let audio = new Audio("https://www.soundjay.com/nature/sounds/stream-2.mp3");
 let audio2 = new Audio(`https://www.soundjay.com/nature/sounds/river-${randomNb(6)}.mp3`);
 audio2.play();
 

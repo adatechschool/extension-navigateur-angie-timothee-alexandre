@@ -95,13 +95,13 @@ html {
     padding: 8px;
     border-radius: 10px;
     border-color: var(--main-bg-color);
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 
 #searchBtn:hover {
     background-color: black;
     color: white;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 
 #startButton {

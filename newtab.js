@@ -1,7 +1,7 @@
 const secondes = document.querySelector('.secondes .number')
 const minutes = document.querySelector('.minutes .number')
-const heures = document.querySelector('.heures .number')
-const jours = document.querySelector('.jours .number')
+const hours = document.querySelector('.hours .number')
+const days = document.querySelector('.days .number')
 
 document.addEventListener("DOMContentLoaded", function () {
     randomQuote();
@@ -22,23 +22,29 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(function () {
             // Récupérer la date de début depuis le stockage local
             const storedStartDate = localStorage.getItem("challengeStartDate");
-
+            
             if (storedStartDate) {
                 const startDate = new Date(storedStartDate);
                 const currentDate = new Date();
                 const elapsedMilliseconds = currentDate - startDate;
-
+                
                 const secondsNow = Math.floor((elapsedMilliseconds / 1000) % 60);
                 const minutesNow = Math.floor((elapsedMilliseconds / 1000 / 60) % 60);
                 const hoursNow = Math.floor((elapsedMilliseconds / 1000 / 60 / 60) % 24);
                 const daysNow = Math.floor(elapsedMilliseconds / 1000 / 60 / 60 / 24);
-
+                
                 // Afficher le compteur
                 // counterDisplay.textContent = `${days} jours, ${hours} heures, ${minutes} minutes, ${seconds} secondes`;
                 secondes.innerHTML = secondsNow < 10 ? `0${secondsNow}` : secondsNow
                 minutes.innerHTML = minutesNow < 10 ? `0${minutesNow}` : minutesNow
-                heures.innerHTML = hoursNow < 10 ? `0${hoursNow}` : hoursNow
-                jours.innerHTML = daysNow < 10 ? `0${daysNow}` : daysNow
+                hours.innerHTML = hoursNow < 10 ? `0${hoursNow}` : hoursNow
+                days.innerHTML = daysNow < 10 ? `0${daysNow}` : daysNow
+                
+                if (secondsNow + minutesNow + hoursNow + daysNow === 0) {
+                    startButton.setAttribute("key", "START");
+                } else {
+                    startButton.setAttribute("key", "RESTART");
+                }
             }
         }, 1000);
     }
@@ -82,8 +88,8 @@ function randomNb(nb) {
     return Math.floor(Math.random() * nb) + 1;
 }
 
-let audio2 = new Audio(`https://www.soundjay.com/nature/sounds/river-${randomNb(6)}.mp3`);
-audio2.play();
+let audio = new Audio(`https://www.soundjay.com/nature/sounds/river-${randomNb(6)}.mp3`);
+audio.play();
 
 
 //? TRADUCTION
@@ -91,14 +97,22 @@ audio2.play();
 // Define a dictionary of translations for each language
 const translations = {
     'en-gb': {
+        "SEARCH": "Search",
         "TITLE": "Get Sober !",
         "DESCRIPTION": "Starting the New Year with new goals, it's the occasion to ask yourself about your drinking habits. Did you ever get black out ? Do you drink on your own ? Do you need to drink to go out ?",
         "START": "START THE CHALLENGE",
+        "RESTART": "RESTART THE CHALLENGE",
+        "DAYS": "days",
+        "HOURS": "hours",
     },
     'fr-fr': {
+        "SEARCH": "Rechercher",
         "TITLE": "Soyez Sobre !",
         "DESCRIPTION": "A l'occasion du dry january, prends le temps de te poser les bonnes questions sur ta consommation d'alcool",
         "START": "COMMENCER LE CHALLENGE",
+        "RESTART": "RECOMMENCER LE CHALLENGE",
+        "DAYS": "jours",
+        "HOURS": "heures",
     }
 };
 
